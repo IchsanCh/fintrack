@@ -26,7 +26,7 @@ class SendVerificationEmail implements ShouldQueue
 
     public function handle(): void
     {
-        $otp = null;
+        $otp = "";
 
         DB::transaction(function () use (&$otp) {
             $this->user->emailVerifications()
