@@ -1,4 +1,4 @@
-<x-layouts.app title="Verifikasi Email — FinTrack">
+<x-layouts.app title="Email Verification">
     <div class="min-h-screen flex bg-base-100">
 
         {{-- ══════════════════════════════════════

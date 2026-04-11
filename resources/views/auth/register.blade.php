@@ -1,4 +1,4 @@
-<x-layouts.app title="Daftar — FinTrack">
+<x-layouts.app title="Register">
     <div class="min-h-screen flex bg-base-100">
 
         {{-- ══════════════════════════════════════
@@ -60,7 +60,7 @@
                     </h1>
                     <p class="text-sm text-base-content/50">
                         Sudah punya akun?
-                        <a href="#" class="text-primary hover:text-primary/70 transition-colors">
+                        <a href="{{ route('login') }}" class="text-primary hover:text-primary/70 transition-colors">
                             Masuk
                         </a>
                     </p>
