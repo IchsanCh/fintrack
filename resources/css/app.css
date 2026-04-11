@@ -6,8 +6,116 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap");
+
+/* ─────────────────────────────────────────────
+   FINTRACK — Custom Purple Theme (DaisyUI v5)
+   ───────────────────────────────────────────── */
+@plugin "daisyui/theme" {
+    name: "fintrack";
+    default: true;
+    prefersdark: true;
+
+    --color-base-100: oklch(10% 0.02 280);
+    --color-base-200: oklch(13% 0.025 278);
+    --color-base-300: oklch(19% 0.02 276);
+    --color-base-content: oklch(92% 0.015 282);
+
+    --color-primary: oklch(56% 0.235 280);
+    --color-primary-content: oklch(98% 0.005 280);
+
+    --color-secondary: oklch(71% 0.175 285);
+    --color-secondary-content: oklch(14% 0.04 280);
+
+    --color-accent: oklch(64% 0.19 278);
+    --color-accent-content: oklch(98% 0.005 280);
+
+    --color-neutral: oklch(20% 0.02 278);
+    --color-neutral-content: oklch(80% 0.012 280);
+
+    --color-info: oklch(68% 0.15 240);
+    --color-info-content: oklch(98% 0 0);
+    --color-success: oklch(67% 0.17 158);
+    --color-success-content: oklch(98% 0 0);
+    --color-warning: oklch(80% 0.18 78);
+    --color-warning-content: oklch(15% 0 0);
+    --color-error: oklch(63% 0.22 25);
+    --color-error-content: oklch(98% 0 0);
+
+    --radius-box: 0.75rem;
+    --radius-field: 0.5rem;
+    --radius-selector: 0.375rem;
+    --border: 1px;
+}
+
 @theme {
-    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Space Mono", ui-monospace, monospace;
+}
+
+/* ─────────────────────────────────────────────
+   OTP INPUT
+   ───────────────────────────────────────────── */
+.ft-otp-digit {
+    width: 52px;
+    height: 60px;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-base-content);
+    background: oklch(100% 0 0 / 0.08);
+    border: 1px solid var(--color-base-300);
+    border-radius: var(--radius-field);
+    outline: none;
+    transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+    caret-color: var(--color-primary);
+    -webkit-appearance: none;
+}
+
+.ft-otp-digit:focus {
+    border-color: oklch(56% 0.235 280 / 0.6);
+    background: oklch(56% 0.235 280 / 0.05);
+    box-shadow: 0 0 0 3px oklch(56% 0.235 280 / 0.12);
+}
+
+.ft-otp-digit.otp-filled {
+    border-color: oklch(56% 0.235 280 / 0.4);
+}
+
+.ft-otp-digit.otp-error {
+    border-color: oklch(63% 0.22 25 / 0.55);
+    background: oklch(63% 0.22 25 / 0.04);
+}
+
+@media (max-width: 400px) {
+    .ft-otp-digit {
+        width: 42px;
+        height: 52px;
+        font-size: 1.125rem;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   PASSWORD STRENGTH BARS
+   ───────────────────────────────────────────── */
+.ft-bar {
+    height: 3px;
+    flex: 1;
+    border-radius: 2px;
+    background: oklch(100% 0 0 / 0.3);
+    transition: background 0.25s;
+}
+
+.ft-bar.strength-weak {
+    background: var(--color-error);
+}
+.ft-bar.strength-fair {
+    background: var(--color-warning);
+}
+.ft-bar.strength-good {
+    background: var(--color-success);
+}
+.ft-bar.strength-strong {
+    background: var(--color-secondary);
 }
